@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   var data = response.data;
 
   const cheerio = require('cheerio');
-
+/*
   var $ = cheerio.load(data);
 
   // Select the container with class "keyfacts"
@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     keyFacts[key] = translatedValue.text;
   });
-
+*/
   // now, extract the parts you want using cheerio ... 
 
 
@@ -82,7 +82,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       info: text,
       image_url: imageUrl,
       country_images: imageInfoArray,
-      key_facts: keyFacts
+      
     }
   });
 };

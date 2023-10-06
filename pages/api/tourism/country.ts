@@ -29,5 +29,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 
 
-  res.status(200).json({ message: paragraphs.length });
+  res.status(200).json({ message: data });
 };

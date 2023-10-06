@@ -2,6 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { translate } from '@vitalets/google-translate-api';
+import axios from 'axios';
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

@@ -8,7 +8,6 @@ import { HttpProxyAgent } from 'http-proxy-agent';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { continent, country, language } = req.body;
 
-  const agent = new HttpProxyAgent('http://168.63.76.32:3128');
 
   var response = await axios.get(`https://www.worldtravelguide.net/guides/${continent}/${country}/`);
   var data = response.data;
@@ -44,9 +43,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return { imageUrl, title };
   }).get();
 
-
-
-  //const { text } =  await translate(paragraphs, { to: language });
 
   let text = paragraphs;
   if (language) {

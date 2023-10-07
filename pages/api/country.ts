@@ -1,12 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { translate } from '@vitalets/google-translate-api';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import { HttpProxyAgent } from 'http-proxy-agent';
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { continent, country, language } = req.body;
+  const { continent, country } = req.query;
 
 
   var response = await axios.get(`https://www.worldtravelguide.net/guides/${continent}/${country}/`);
@@ -45,13 +43,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 
   let text = paragraphs;
-  if (language) {
-
-    const translationResult = await translate(paragraphs, { to: language });
-
-    text = translationResult.text;
-
-  }
+  
 
   res.status(200).json({
     data: {

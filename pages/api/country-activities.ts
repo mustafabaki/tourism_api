@@ -1,11 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { translate } from '@vitalets/google-translate-api';
 import axios from 'axios';
 import cheerio from 'cheerio';
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    const { continent, country, language } = req.body;
+    const { continent, country } = req.query;
 
 
     var response = await axios.get(`https://www.worldtravelguide.net/guides/${continent}/${country}/things-to-do/`);
@@ -31,16 +30,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }).get();
 
 
-    let text = paragraphs;
-    if (language) {
-
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        const translationResult = await translate(paragraphs, { to: language });
-
-        text = translationResult.text;
-
-    }
 
     res.status(200).json({
         data: {

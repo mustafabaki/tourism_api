@@ -62,8 +62,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       info: text,
       image_url: imageUrl,
       country_images: imageInfoArray,
-      language: !language ? null : language
-
     }
   });
 };

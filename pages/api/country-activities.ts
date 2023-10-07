@@ -21,18 +21,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const things_to_do = $('article p').map((index: number, element: any) => {
 
-       /* paragraphs = paragraphs + $(element).prev('h3').text() + "\n";
-        paragraphs = paragraphs + $(element).text();*/
+
         const title = $(element).prev('h3').text();
         const activity = $(element).text();
-        return { title, activity };
+        if (title !== "") {
+            return { title, activity };
+        }
+
     }).get();
 
 
     let text = paragraphs;
     if (language) {
 
-        await new Promise((resolve) => setTimeout(resolve,2000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
         const translationResult = await translate(paragraphs, { to: language });
 

@@ -46,16 +46,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 
 
-  const { text } = await translate(paragraphs, { to: language });
+  //const { text } =  await translate(paragraphs, { to: language });
 
+  let text = paragraphs;
+  if (language) {
 
+    const translationResult = await translate(paragraphs, { to: language });
+
+    text = translationResult.text;
+
+  }
 
   res.status(200).json({
     data: {
       info: text,
       image_url: imageUrl,
       country_images: imageInfoArray,
-      
+      language: !language ? null : language
+
     }
   });
 };

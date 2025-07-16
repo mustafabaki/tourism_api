@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "^18",
     "@types/react": "^18",
-    "@types/react-dom": "^22",
+    "@types/react-dom": "^18",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",

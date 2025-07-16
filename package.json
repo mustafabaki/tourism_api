@@ -14,8 +14,8 @@
     "cheerio": "^1.0.0-rc.12",
     "http-proxy-agent": "^7.0.0",
     "next": "13.5.4",
-    "react": "^22",
-    "react-dom": "^22",
+    "react": "^18",
+    "react-dom": "^18",
     "xmldom": "^0.6.0",
     "xpath": "^0.0.33"
   },
